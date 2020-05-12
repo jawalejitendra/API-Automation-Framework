@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "required": [
+    "name",
+    "employees"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "The name schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "employees"
+      ]
+    },
+    "employees": {
+      "$id": "#/properties/employees",
+      "type": "array",
+      "title": "The employees schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        [
+          {
+            "employee_name": "Tiger Nixon",
+            "employee_age": "61",
+            "id": "1",
+            "employee_salary": "320800"
+          },
+          {
+            "id": "2",
+            "employee_salary": "170750",
+            "employee_name": "Garrett Winters",
+            "employee_age": "63"
+          }
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/employees/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/employees/items/anyOf/0",
+            "type": "object",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "employee_salary": "320800",
+                "employee_name": "Tiger Nixon",
+                "employee_age": "61",
+                "id": "1"
+              }
+            ],
+            "required": [
+              "id",
+              "employee_name",
+              "employee_salary",
+              "employee_age"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "$id": "#/properties/employees/items/anyOf/0/properties/id",
+                "type": "string",
+                "title": "The id schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "1"
+                ]
+              },
+              "employee_name": {
+                "$id": "#/properties/employees/items/anyOf/0/properties/employee_name",
+                "type": "string",
+                "title": "The employee_name schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "Tiger Nixon"
+                ]
+              },
+              "employee_salary": {
+                "$id": "#/properties/employees/items/anyOf/0/properties/employee_salary",
+                "type": "string",
+                "title": "The employee_salary schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "320800"
+                ]
+              },
+              "employee_age": {
+                "$id": "#/properties/employees/items/anyOf/0/properties/employee_age",
+                "type": "string",
+                "title": "The employee_age schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "61"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
